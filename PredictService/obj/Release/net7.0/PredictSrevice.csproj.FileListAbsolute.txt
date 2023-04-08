@@ -1,0 +1,12 @@
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/PredictSrevice.deps.json
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/PredictSrevice.pdb
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.csproj.AssemblyReference.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.GeneratedMSBuildEditorConfig.editorconfig
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.AssemblyInfoInputs.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.AssemblyInfo.cs
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.csproj.CoreCompileInputs.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/refint/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/PredictSrevice.pdb
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/ref/PredictSrevice.dll

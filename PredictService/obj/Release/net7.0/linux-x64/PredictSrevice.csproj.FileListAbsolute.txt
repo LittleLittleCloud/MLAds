@@ -1,0 +1,12 @@
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/linux-x64/PredictSrevice.deps.json
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/linux-x64/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/bin/Release/net7.0/linux-x64/PredictSrevice.pdb
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.csproj.AssemblyReference.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.GeneratedMSBuildEditorConfig.editorconfig
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.AssemblyInfoInputs.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.AssemblyInfo.cs
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.csproj.CoreCompileInputs.cache
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/refint/PredictSrevice.dll
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/PredictSrevice.pdb
+/usr/local/DevelopixAdsML/PredictService/obj/Release/net7.0/linux-x64/ref/PredictSrevice.dll

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictAPI", "PredictAPI\PredictAPI.csproj", "{1C9B3FEA-7963-4949-B36D-1703AC641407}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictSrevice", "PredictService\PredictSrevice.csproj", "{57C37A37-2187-4533-AF3B-569E726089A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C9B3FEA-7963-4949-B36D-1703AC641407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C9B3FEA-7963-4949-B36D-1703AC641407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C9B3FEA-7963-4949-B36D-1703AC641407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C9B3FEA-7963-4949-B36D-1703AC641407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C37A37-2187-4533-AF3B-569E726089A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C37A37-2187-4533-AF3B-569E726089A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C37A37-2187-4533-AF3B-569E726089A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C37A37-2187-4533-AF3B-569E726089A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7AE9B65-AC8D-441F-8C91-DABC5297545D}
+	EndGlobalSection
+EndGlobal
