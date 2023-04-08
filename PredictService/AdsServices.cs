@@ -12,7 +12,7 @@ namespace adsScore
 {
     public class AdsServices
     {
-        public static readonly string ModelFile = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) == true ? @"C:\Users\mhsha\AdsML.zip" : @"/usr/local/DPX/DPXAdsModel/AdsML.zip";
+        public static readonly string ModelFile = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) == true ? @"AdsML.zip" : @"/usr/local/DPX/DPXAdsModel/AdsML.zip";
         private readonly PredictionEngine<ModelInput, ModelOutput> _predictEngine;
         private readonly IMemoryCache _cache;
 
@@ -44,7 +44,7 @@ namespace adsScore
                 .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName: @"PredictedLabel", inputColumnName: @"PredictedLabel"));
             return pipeline;
         }
-        public bool RetrainModel(List<ModelInput> newData)
+        public static bool RetrainModel(List<ModelInput> newData)
         {
             if (newData == null)
             {
@@ -63,16 +63,8 @@ namespace adsScore
 
             var dataView = mlContext.Data.LoadFromEnumerable<ModelInput>(newData);
 
-            var featurizePipeline = mlContext.Transforms.Text.FeaturizeText(inputColumnName: @"Content", outputColumnName: @"Content")
-                .Append(mlContext.Transforms.Concatenate(@"Features", new[] { @"Content" }))
-                .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName: @"Label", inputColumnName: @"Label"))
-                .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"));
-
-            var mapKeyToValueEstimator = mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel");
-
-            var featurizeModel = featurizePipeline.Fit(dataView);
-            var featurizedData = featurizeModel.Transform(dataView);
-
+            var featurizedModel = new TransformerChain<ITransformer>((originalModel as TransformerChain<ITransformer>).Take(4).ToArray());
+            var featurizedData = featurizedModel.Transform(dataView);
             var trainer = mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(new LbfgsMaximumEntropyMulticlassTrainer.Options() { L1Regularization = 0.03125F, L2Regularization = 0.2431656F, LabelColumnName = @"Label", FeatureColumnName = @"Features" });
 
             // fit new trainer with weight from original model
@@ -80,8 +72,7 @@ namespace adsScore
             featurizedData = retrainedModel.Transform(featurizedData);
 
             // fit mapKeyToValueEstimator
-            var mapKeyToValueTransformer = mapKeyToValueEstimator.Fit(featurizedData);
-            featurizedData = mapKeyToValueTransformer.Transform(featurizedData);
+            var mapKeyToValueTransformer = (originalModel as TransformerChain<ITransformer>).Last();
 
             // the label will be in featurizedData.GetColumn<string>("PredictedLabel");
 
@@ -89,7 +80,7 @@ namespace adsScore
             // 1. the retrained model is not the same as the original model, it only contains the lbfgs trainer
             // 2. to save the retrained model with the original model, you need to append the retrained model to featurizer, and then append mapKeyToValueTransformer to the appended model
             // 3. Warning: I'm not sure the following code work 100% correctly, but it should be close.
-            var retrainedModelWithOriginalModel = featurizeModel.Append(retrainedModel).Append(mapKeyToValueTransformer);
+            var retrainedModelWithOriginalModel = featurizedModel.Append(retrainedModel).Append(mapKeyToValueTransformer);
             mlContext.Model.Save(retrainedModelWithOriginalModel, dataView.Schema, ModelFile);
             return true;
             
